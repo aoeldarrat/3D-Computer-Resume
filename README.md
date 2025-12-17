@@ -14,10 +14,13 @@ An interactive 3D office scene and a desktop OS interface that displays a resume
 - **Vite**: Build tool and dev server.
 
 ## Future development
-|    Feature    |  Implemented (✅/❌)|
+|     Feature    | Implemented (✅/❌)  |
 | -------------- | ------------------- |
-| Add soundtrack | ❌ |
+| Add soundtrack | ❌                  |
 | Replace CSS 3d object with blender models with GLTF | ❌|
+| Host on live site | ❌ |
+| Expand on OS UI| ❌ |
+| Spruce up the place a bit | ❌ |
 
 ## How to Run
 1. Install dependencies:
