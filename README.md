@@ -1,6 +1,6 @@
 # Interactive 3D Portfolio
 
-A professional portfolio website featuring an interactive 3D office scene and a desktop OS interface.
+An interactive 3D office scene and a desktop OS interface that displays a resume.
 
 ## Tech Stack
 - **Three.js**: 3D rendering and scene management.
@@ -22,4 +22,4 @@ A professional portfolio website featuring an interactive 3D office scene and a 
 - **3D Office**: Interactive desk environment.
 - **Zoom Interaction**: Click the monitor to enter "Work Mode".
 - **OS Interface**: Functional desktop with draggable windows (simulated).
-- **Content**: Projects, Apps, History, and Skills sections.
+- **Content**: Projects, Apps, History, and Skills sections - WIP (Will change the sections displayed).
