@@ -8,7 +8,7 @@ An interactive 3D office scene and a desktop OS interface that displays a resume
 ### Scroll
 <video src="https://github.com/user-attachments/assets/933be5b3-db78-45fe-af26-24812e7c64f4" controls></video>
 
-## Tech Stack
+## Tech
 - **Three.js**: 3D rendering and scene management.
 - **GSAP**: Animations (Camera transitions, UI fades).
 - **Vite**: Build tool and dev server.
