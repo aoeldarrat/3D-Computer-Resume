@@ -6,7 +6,7 @@ An interactive 3D office scene and a desktop OS interface that displays a resume
 <video src="https://github.com/user-attachments/assets/6497a734-e797-4c06-8fd1-7582357b05d6" controls></video>
 
 ### Scroll
-<video src="https://github.com/user-attachments/assets/e8972869-520c-410d-ba6e-ed6350dc69a1" controls></video>
+<video src="https://github.com/user-attachments/assets/f375f7fb-8244-4332-bb37-2fa357b3a0b8" controls></video>
 
 ## Tech
 - **Three.js**: 3D rendering and scene management.
