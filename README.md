@@ -2,6 +2,9 @@
 
 An interactive 3D office scene and a desktop OS interface that displays a resume. The user can scroll to view the room, tapping the screen will zoom the user to the Desktop and display a set of folders to go through. An interesting take on a resume/profile website. This site is inspired by a another website i visited years ago that ive long forgotten the name of. The other site had fully coded games, misc programs, and an almost fully operational OS, this isnt that complex, but Istanbul wasnt built in a day...
 
+<video src="https://github.com/user-attachments/assets/6497a734-e797-4c06-8fd1-7582357b05d6" width="320" height="240" controls></video>
+
+
 ## Tech Stack
 - **Three.js**: 3D rendering and scene management.
 - **GSAP**: Animations (Camera transitions, UI fades).
