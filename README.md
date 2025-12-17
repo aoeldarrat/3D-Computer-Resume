@@ -16,11 +16,15 @@ An interactive 3D office scene and a desktop OS interface that displays a resume
 ## Future development
 |     Feature    | Implemented (✅/❌)  |
 | -------------- | ------------------- |
-| Add soundtrack | ❌                  |
-| Replace CSS 3d object with blender models with GLTF | ❌|
-| Host on live site | ❌ |
-| Expand on OS UI| ❌ |
+| Add soundtrack - office, cafe, library, etc | ❌                  |
+| Replace CSS 3d models with blender models using GLTF | ❌|
+| Expand on OS UI and functionality| ❌ |
 | Spruce up the place a bit | ❌ |
+| Host on live site | ❌ |
+| Add something living for goodness sake | ❌ |
+| Background for more immersion | ❌ |
+| Fix folder close, expand, and minmize functions | ❌ |
+| Host on live site | ❌ |
 
 ## How to Run
 1. Install dependencies:
