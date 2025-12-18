@@ -56,11 +56,6 @@ export function createOffice() {
     // });
     // scene.add(deskGroup);
 
-    /*
-    // --- BLENDER REPLACEMENT: DESK ---
-    loader.load('/models/desk.glb', (gltf) => {
-
-
     // --- BLENDER DESK ---
     loader.load('/assets/antique_desk.glb', (gltf) => {
         const model = gltf.scene;
