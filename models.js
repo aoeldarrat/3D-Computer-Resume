@@ -32,35 +32,40 @@ export function createOffice() {
     */
 
     // Desk (smaller, more focused)
-    const deskGroup = new THREE.Group();
-    const topGeo = new THREE.BoxGeometry(3, 0.15, 1.5);
-    const topMat = new THREE.MeshStandardMaterial({ color: CONFIG.colors.desk });
-    const deskTop = new THREE.Mesh(topGeo, topMat);
-    deskTop.position.y = 1.5;
-    deskTop.castShadow = true;
-    deskTop.receiveShadow = true;
-    deskGroup.add(deskTop);
+    // const deskGroup = new THREE.Group();
+    // const topGeo = new THREE.BoxGeometry(3, 0.15, 1.5);
+    // const topMat = new THREE.MeshStandardMaterial({ color: CONFIG.colors.desk });
+    // const deskTop = new THREE.Mesh(topGeo, topMat);
+    // deskTop.position.y = 1.5;
+    // deskTop.castShadow = true;
+    // deskTop.receiveShadow = true;
+    // deskGroup.add(deskTop);
 
-    // Legs (adjusted for smaller desk)
-    const legGeo = new THREE.BoxGeometry(0.1, 1.5, 0.1);
-    const legMat = new THREE.MeshStandardMaterial({ color: 0x333333 });
-    const positions = [
-        { x: -1.4, z: -0.65 }, { x: 1.4, z: -0.65 },
-        { x: -1.4, z: 0.65 }, { x: 1.4, z: 0.65 }
-    ];
-    positions.forEach(pos => {
-        const leg = new THREE.Mesh(legGeo, legMat);
-        leg.position.set(pos.x, 0.75, pos.z);
-        leg.castShadow = true;
-        deskGroup.add(leg);
-    });
-    scene.add(deskGroup);
+    // // Legs (adjusted for smaller desk)
+    // const legGeo = new THREE.BoxGeometry(0.1, 1.5, 0.1);
+    // const legMat = new THREE.MeshStandardMaterial({ color: 0x333333 });
+    // const positions = [
+    //     { x: -1.4, z: -0.65 }, { x: 1.4, z: -0.65 },
+    //     { x: -1.4, z: 0.65 }, { x: 1.4, z: 0.65 }
+    // ];
+    // positions.forEach(pos => {
+    //     const leg = new THREE.Mesh(legGeo, legMat);
+    //     leg.position.set(pos.x, 0.75, pos.z);
+    //     leg.castShadow = true;
+    //     deskGroup.add(leg);
+    // });
+    // scene.add(deskGroup);
 
     /*
     // --- BLENDER REPLACEMENT: DESK ---
     loader.load('/models/desk.glb', (gltf) => {
+
+
+    // --- BLENDER DESK ---
+    loader.load('/assets/antique_desk.glb', (gltf) => {
         const model = gltf.scene;
-        model.position.set(0, 0, 0); // Adjust as needed
+        model.position.set(0, 0, 0);
+        model.scale.addScalar(1)
         model.traverse((child) => {
             if (child.isMesh) {
                 child.castShadow = true;
@@ -69,11 +74,10 @@ export function createOffice() {
         });
         scene.add(model);
     });
-    */
 
     // Monitor
     const monitorGroup = new THREE.Group();
-    monitorGroup.position.set(0, 1.5 + 0.1, -0.5); // On desk
+    monitorGroup.position.set(0, 1.5, -0.5); // On desk
 
     // Stand
     const standGeo = new THREE.BoxGeometry(0.2, 0.5, 0.2);
@@ -87,6 +91,14 @@ export function createOffice() {
     const frame = new THREE.Mesh(frameGeo, standMat);
     frame.position.y = 0.9;
     monitorGroup.add(frame);
+
+    // Back frame (to cover the view from behind)
+    const backFrameGeo = new THREE.BoxGeometry(2.2, 1.3, 0.1)
+    const backFrame = new THREE.Mesh(backFrameGeo, standMat) // use same material as stand
+    backFrame.position.y = 0.9;
+    backFrame.position.z = -0.1;
+    monitorGroup.add(backFrame);
+
 
     // Screen Surface (The clickable part - kept for raycasting/occlusion)
     // Increased size to cover full monitor face for easier clicking
@@ -118,35 +130,19 @@ export function createOffice() {
 
     scene.add(monitorGroup);
 
-    /*
-    // --- BLENDER REPLACEMENT: MONITOR ---
+    // --- BLENDER MONITOR ---
     // Note: You still need the CSS3DObject and the invisible raycast plane (screen).
     // You can either create them manually like above, or find a placeholder mesh in your Blender model.
-    loader.load('/models/monitor.glb', (gltf) => {
-        const model = gltf.scene;
-        model.position.set(0, 1.6, -0.5); // Adjust to sit on desk
-        
-        // If you named a plane 'ScreenPlaceholder' in Blender:
-        // const screenMesh = model.getObjectByName('ScreenPlaceholder');
-        // if (screenMesh) {
-        //     // Attach CSS3D Object to it
-        //     cssObject.position.copy(screenMesh.position);
-        //     cssObject.rotation.copy(screenMesh.rotation);
-        //     cssObject.scale.set(0.002, 0.002, 0.002); // Adjust scale
-        //     model.add(cssObject);
-        //
-        //     // Use the mesh for raycasting
-        //     objects.monitorScreen = screenMesh;
-        //     screenMesh.material = new THREE.MeshBasicMaterial({ opacity: 0, transparent: true });
-        // }
-        
-        scene.add(model);
-        
+    loader.load('/assets/desktop2.glb', (gltf) => {
+        const computerModel = gltf.scene;
+        computerModel.position.set(0, 1.75, 0.8);
+        computerModel.scale.addScalar(0.2);
+        scene.add(computerModel);
+
         // If not using a placeholder in Blender, just add the CSS object manually relative to the model
         // scene.add(cssObject); 
         // cssObject.position.set(...)
     });
-    */
 
     // Chair (Simple representation)
     const chairGroup = new THREE.Group();
