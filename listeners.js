@@ -90,6 +90,36 @@ const contentData = {
                 <small>2017 - 2020</small>
                 <p>Full stack development for a high-growth fintech startup.</p>
             </div>
+            <div class="timeline-item">
+                <h3>Senior Software Engineer @ TechCorp</h3>
+                <small>2020 - Present</small>
+                <p>Leading the frontend infrastructure team.</p>
+            </div>
+            <div class="timeline-item">
+                <h3>Senior Software Engineer @ TechCorp</h3>
+                <small>2020 - Present</small>
+                <p>Leading the frontend infrastructure team.</p>
+            </div>
+            <div class="timeline-item">
+                <h3>Senior Software Engineer @ TechCorp</h3>
+                <small>2020 - Present</small>
+                <p>Leading the frontend infrastructure team.</p>
+            </div>
+            <div class="timeline-item">
+                <h3>Senior Software Engineer @ TechCorp</h3>
+                <small>2020 - Present</small>
+                <p>Leading the frontend infrastructure team.</p>
+            </div>
+            <div class="timeline-item">
+                <h3>Senior Software Engineer @ TechCorp</h3>
+                <small>2020 - Present</small>
+                <p>Leading the frontend infrastructure team.</p>
+            </div>
+            <div class="timeline-item">
+                <h3>Senior Software Engineer @ TechCorp</h3>
+                <small>2020 - Present</small>
+                <p>Leading the frontend infrastructure team.</p>
+            </div>
         `
     },
     skills: {
