@@ -3,6 +3,8 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { CSS3DRenderer } from 'three/examples/jsm/renderers/CSS3DRenderer.js';
 import gsap from 'gsap';
 
+// TODO - Need to split this up so the screen is its own file
+
 // --- Configuration ---
 export const CONFIG = {
     camera: {
