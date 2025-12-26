@@ -6,6 +6,10 @@ body {
     font-family: 'Inter', sans-serif;
 }
 
+#portfolio-container {
+    visibility: hidden;
+}
+
 #canvas-container {
     position: fixed;
     top: 0;
