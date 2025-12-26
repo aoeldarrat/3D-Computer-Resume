@@ -1,0 +1,38 @@
+<nav id="menu-bar">
+    <ul>
+        <li><a href="/" onclick="route()">Home</a></li>
+        <li><a href="/portfolio" onclick="route()">Portfolio</a></li>
+        <li><a href="/contact" onclick="route()">Contact</a></li>
+    </ul>
+</nav>
+
+<style>
+    #menu-bar {
+        background: rgba(0, 0, 0, 0.8);
+        padding: 1rem;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        z-index: 1000;
+        backdrop-filter: blur(10px);
+    }
+
+    #menu-bar ul {
+        list-style: none;
+        display: flex;
+        gap: 2rem;
+        margin: 0;
+        justify-content: center;
+    }
+
+    #menu-bar a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        transition: color 0.3s;
+    }
+
+    #menu-bar a:hover {
+        color: #4facfe;
+    }
+</style>

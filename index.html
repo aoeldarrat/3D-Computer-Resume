@@ -3,29 +3,21 @@
 
 <head>
     <meta charset="utf-8">
-    <title>Interactive 3D Portfolio</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Abdulrahman Eldarrat - Portfolio</title>
+    <link rel="stylesheet" href="/style.css">
 </head>
 
 <body>
-    <div id="canvas-container"></div>
+    <!-- Navigation Layout (Always visible) -->
+    <header id="navigation-root"></header>
 
-    <div id="os-interface">
-        <div class="desktop-icons">
-            <!-- Icons will be generated here -->
-        </div>
+    <!-- Content Area (Swapped by JS)-->
+    <main id="app-root"></main>
 
-        <div class="window-container">
-            <!-- Windows will spawn here -->
-        </div>
+    <footer id="footer-root"></footer>
 
-        <div class="taskbar">
-            <div class="start-button">Start</div>
-            <div class="clock">12:00 PM</div>
-        </div>
-    </div>
-
-    <script type="module" src="/main.js"></script>
+    <!-- Router Logic -->
+    <script type="module" src="/js/router.js"></script>
 </body>
 
 </html>

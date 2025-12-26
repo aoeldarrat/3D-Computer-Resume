@@ -44,7 +44,6 @@ renderer.shadowMap.enabled = true;
 renderer.domElement.style.position = 'absolute';
 renderer.domElement.style.top = '0';
 renderer.domElement.style.zIndex = '1'; // Behind CSS3D
-document.getElementById('canvas-container').appendChild(renderer.domElement);
 
 // CSS3D Renderer
 export const cssRenderer = new CSS3DRenderer();
@@ -52,11 +51,17 @@ cssRenderer.setSize(window.innerWidth, window.innerHeight);
 cssRenderer.domElement.style.position = 'absolute';
 cssRenderer.domElement.style.top = '0';
 cssRenderer.domElement.style.zIndex = '2'; // On top of WebGL to allow interaction
-// Allow pointer events so OrbitControls can work
 cssRenderer.domElement.style.pointerEvents = 'auto';
-document.getElementById('canvas-container').appendChild(cssRenderer.domElement);
 
-export const controls = new OrbitControls(camera, cssRenderer.domElement); // Attach to body to catch all events
+export function attachToDOM() {
+    const container = document.getElementById('canvas-container');
+    if (container) {
+        container.appendChild(renderer.domElement);
+        container.appendChild(cssRenderer.domElement);
+    }
+}
+
+export const controls = new OrbitControls(camera, cssRenderer.domElement);
 controls.enableDamping = true;
 controls.maxPolarAngle = Math.PI / 2; // Don't go below floor
 controls.minDistance = 2;

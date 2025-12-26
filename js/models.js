@@ -1,7 +1,7 @@
 import * as THREE from 'three';
 import { CSS3DObject } from 'three/examples/jsm/renderers/CSS3DRenderer.js';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader.js';
-import { scene, CONFIG } from './scene.js';
+import { scene, CONFIG } from './scene';
 
 export const objects = {
     monitorScreen: null // Reference for raycasting
