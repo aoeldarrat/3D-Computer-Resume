@@ -1,6 +1,7 @@
 import { scene, camera, renderer, cssRenderer, controls, attachToDOM } from './scene.js';
 import { createOffice } from './models.js';
 import { setupListeners } from './listeners.js';
+import { initOS } from './listeners.js';
 
 let initialized = false;
 let animationId = null;
@@ -12,6 +13,8 @@ export function init3DScene() {
         setupListeners();
         initialized = true;
     }
+
+    initOS()
 
     // Always re-attach to the DOM (since the container is recreated on navigation)
     attachToDOM();
