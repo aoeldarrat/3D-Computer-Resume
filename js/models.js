@@ -70,34 +70,34 @@ export function createOffice() {
         scene.add(model);
     });
 
-    // Monitor
-    const monitorGroup = new THREE.Group();
-    monitorGroup.position.set(0, 1.5, -0.5); // On desk
+    // Screen group - clickable part
+    const screenGroup = new THREE.Group();
+    screenGroup.position.set(-0.25, 1.6, -0.4);
 
-    // Stand
-    const standGeo = new THREE.BoxGeometry(0.2, 0.5, 0.2);
-    const standMat = new THREE.MeshStandardMaterial({ color: CONFIG.colors.monitorFrame });
-    const stand = new THREE.Mesh(standGeo, standMat);
-    stand.position.y = 0.25;
-    monitorGroup.add(stand);
+    // // Stand
+    // const standGeo = new THREE.BoxGeometry(0.2, 0.5, 0.2);
+    // const standMat = new THREE.MeshStandardMaterial({ color: CONFIG.colors.monitorFrame });
+    // const stand = new THREE.Mesh(standGeo, standMat);
+    // stand.position.y = 0.25;
+    // monitorGroup.add(stand);
 
-    // Screen Frame
-    const frameGeo = new THREE.BoxGeometry(2.2, 1.3, 0.1);
-    const frame = new THREE.Mesh(frameGeo, standMat);
-    frame.position.y = 0.9;
-    monitorGroup.add(frame);
+    // // Screen Frame
+    // const frameGeo = new THREE.BoxGeometry(2.2, 1.3, 0.1);
+    // const frame = new THREE.Mesh(frameGeo, standMat);
+    // frame.position.y = 0.9;
+    // monitorGroup.add(frame);
 
-    // Back frame (to cover the view from behind)
-    const backFrameGeo = new THREE.BoxGeometry(2.2, 1.3, 0.1)
-    const backFrame = new THREE.Mesh(backFrameGeo, standMat) // use same material as stand
-    backFrame.position.y = 0.9;
-    backFrame.position.z = -0.1;
-    monitorGroup.add(backFrame);
+    // // Back frame (to cover the view from behind)
+    // const backFrameGeo = new THREE.BoxGeometry(2.2, 1.3, 0.1)
+    // const backFrame = new THREE.Mesh(backFrameGeo, standMat) // use same material as stand
+    // backFrame.position.y = 0.9;
+    // backFrame.position.z = -0.1;
+    // monitorGroup.add(backFrame);
 
 
     // Screen Surface (The clickable part - kept for raycasting/occlusion)
     // Increased size to cover full monitor face for easier clicking
-    const screenGeo = new THREE.PlaneGeometry(2, 1);
+    const screenGeo = new THREE.PlaneGeometry(1.7, 1);
     const screenMat = new THREE.MeshBasicMaterial({
         color: 0x000000,
         opacity: 0, // Invisible, just for raycasting or backing
@@ -107,7 +107,7 @@ export function createOffice() {
     const screen = new THREE.Mesh(screenGeo, screenMat);
     screen.position.set(0, 0.9, 0.05); // Slightly in front of frame
     objects.monitorScreen = screen; // Save reference
-    monitorGroup.add(screen);
+    screenGroup.add(screen);
 
     // CSS3D Object (The OS Interface)
     const osElement = document.getElementById('os-interface');
@@ -119,11 +119,11 @@ export function createOffice() {
     const cssObject = new CSS3DObject(osElement);
     // Scale DOM pixels to 3D units
     // Screen is 2 units wide. DOM is 1000px wide. Scale = 2 / 1000 = 0.002
-    cssObject.scale.set(0.002, 0.002, 0.002);
+    cssObject.scale.set(0.0018, 0.0018, 0.0018);
     cssObject.position.set(0, 0.9, 0.06); // Just in front of the screen mesh
-    monitorGroup.add(cssObject);
+    screenGroup.add(cssObject);
 
-    scene.add(monitorGroup);
+    scene.add(screenGroup);
 
     // --- BLENDER MONITOR ---
     // Note: You still need the CSS3DObject and the invisible raycast plane (screen).
