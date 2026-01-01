@@ -46,8 +46,6 @@ function onMouseClick(event) {
 }
 
 // --- UI Logic ---
-const desktopIconsContainer = document.querySelector('.desktop-icons');
-const windowContainer = document.querySelector('.window-container');
 
 // Content Data
 const contentData = {
@@ -163,7 +161,11 @@ function openWindow(key) {
     `;
 
     win.querySelector('.close-btn').addEventListener('click', () => closeWindow(win));
-    windowContainer.appendChild(win);
+
+    const windowContainer = document.querySelector('.window-container');
+    if (windowContainer) {
+        windowContainer.appendChild(win);
+    }
 
     // Animate in
     requestAnimationFrame(() => win.classList.add('active'));
@@ -176,7 +178,13 @@ function closeWindow(win) {
     activeWindow = null;
 }
 
-function initOS() {
+export function initOS() {
+    const desktopIconsContainer = document.querySelector('.desktop-icons');
+    if (!desktopIconsContainer) return;
+
+    // Clear existing icons to prevent duplicates on re-navigation
+    desktopIconsContainer.innerHTML = '';
+
     // Generate Icons
     Object.keys(contentData).forEach(key => {
         const icon = document.createElement('div');
@@ -234,7 +242,6 @@ export function setupListeners() {
     });
 
     // Initialize OS UI
-    initOS();
 
     // Expose exit function to global scope for UI buttons
     window.exitScreen = zoomToRoom;
