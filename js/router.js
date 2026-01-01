@@ -1,7 +1,7 @@
 import { init3DScene, stop3DScene } from './main.js';
 
 const routes = {
-    '/': '/views/home.html', // Redirect root to home content
+    '/': '/views/home.html',
     '/home': '/views/home.html',
     '/portfolio': '/views/portfolio.html',
     '/contact': '/views/contact.html'
@@ -29,15 +29,15 @@ async function handleLocation() {
             stop3DScene();
         }
     } catch (err) {
-        document.getElementById("app-root").innerHTML = "<h1>404 - Page Not Found</h1>";
+        document.getElementById("app-root").innerHTML = err;
     }
 }
 
 // Global router function
 window.route = (event) => {
-    event = event || window.event;
     event.preventDefault();
-    window.history.pushState({}, "", event.target.getAttribute('href'));
+    const href = event.currentTarget.getAttribute('href')
+    window.history.pushState({}, "", href);
     handleLocation();
 };
 
